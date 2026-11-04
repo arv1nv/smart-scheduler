@@ -1,6 +1,6 @@
 ---
 name: smart-scheduler
-description: Turn screenshots, texts, emails, syllabi, or any document into calendar events, and update or cancel those events later. Use when the user sends something containing dates, deadlines, plans, or events and wants them added to their calendar, says "schedule this", "add this to my calendar", or "put these dates in", or tells you a detail changed, like "the midterm is in LAS C" or "move my dentist appointment to Friday".
+description: Turn screenshots, texts, emails, syllabi, or any document into calendar events, and update or cancel those events later. Use when the user sends something containing dates, deadlines, plans, or events and wants them added to their calendar, says "schedule this", "add this to my calendar", or "put these dates in", or tells you a detail changed, like "the midterm is in Room 204" or "move my dentist appointment to Friday".
 ---
 
 # Smart Scheduler
@@ -25,7 +25,7 @@ If a message contains both, handle the updates first, then the new events.
 
 Read the full input: images, PDFs, pasted text, forwarded messages, tables, and footnotes. For each event, capture:
 
-- **Title:** short and specific. For courses, use the format "COURSE CODE: Item" (for example "EECS 2101: Assignment 3").
+- **Title:** short and specific. For courses, use the format "COURSE CODE: Item" (for example "BIO 101: Assignment 3").
 - **Type:** deadline, exam, class, meeting, social, appointment, or other.
 - **Date**
 - **Start and end time:** for deadlines, use the due time as a short event or an all-day event if no time is given.
@@ -80,7 +80,7 @@ Then report back in one or two lines: how many events were added, to which calen
 
 ## Updating Events
 
-Use this when the user gives new or changed details about an existing event, for example "the midterm is in LAS C", "my 2030 lecture is cancelled Friday", or "push dinner to 8".
+Use this when the user gives new or changed details about an existing event, for example "the midterm is in Room 204", "my BIO 101 lecture is cancelled Friday", or "push dinner to 8".
 
 ### U1: Identify the change
 
@@ -106,15 +106,15 @@ Never change the whole series unless the user confirms it.
 
 Show the change as a short before and after:
 
-> **MATH 2030: Midterm 2** (Sun Nov 15, 4:00 PM)
-> Location: (none) → LAS C
+> **BIO 101: Midterm** (Mon Oct 12, 2:00 PM)
+> Location: (none) → Room 204
 
 If a new date or time overlaps another event, point out the conflict. Apply nothing until the user approves. If the user's message already gave a clear, specific instruction and there is exactly one match, a one-line confirmation is enough.
 
 ### U5: Apply the update
 
 - Edit the existing event in place. Do not delete and recreate it, so reminders and any links to it are kept.
-- Add a short line to the description noting what changed and when, for example "Updated Nov 3: location set to LAS C."
+- Add a short line to the description noting what changed and when, for example "Updated Oct 5: location set to Room 204."
 - For a cancellation, ask whether to delete the event or keep it and add "Cancelled: " to the start of the title. Only delete if the user chooses that.
 
 Then confirm in one line what changed.
